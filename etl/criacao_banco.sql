@@ -1,3 +1,18 @@
+CREATE DATABASE db_beneficios_tangua;
+USE db_beneficios_tangua;
+
+CREATE TABLE tb_mes (
+	id_mes INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    mes DATETIME
+);
+
+CREATE TABLE tb_beneficiario (
+	id_beneficiario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cpf VARCHAR(20),
+    nis VARCHAR(20),
+    nome VARCHAR(100)
+);
+
 CREATE TABLE tb_tipo_beneficio (
 	id_tipo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50)
@@ -12,18 +27,6 @@ CREATE TABLE tb_valor_disponibilizado (
     valor VARCHAR(15),
     FOREIGN KEY (id_tipo_beneficio) REFERENCES tb_tipo_beneficio(id_tipo),
     FOREIGN KEY (id_mes) REFERENCES tb_mes(id_mes)
-);
-
-CREATE TABLE tb_mes (
-	id_mes INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    mes DATETIME
-);
-
-CREATE TABLE tb_beneficiario (
-	id_beneficiario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    cpf VARCHAR(20),
-    nis VARCHAR(20),
-    nome VARCHAR(100)
 );
 
 CREATE TABLE tb_pagamento_disponibilizado_ab (
